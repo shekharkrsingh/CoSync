@@ -59,10 +59,11 @@ exports.forgotPassword = async (req, res) => {
             email
         }, {password: hashedPassword})
 
+        //TODO: to remove changePassword in response
         return res
             .status(200)
             .json(
-                {success: true, changePassword, message: "Auth server, Password Reset successfull"}
+                {success: true, message: "Auth server, Password Reset successfull"}
             )
 
     } catch (error) {

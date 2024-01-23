@@ -46,11 +46,11 @@ exports.changePassword = async (req, res) => {
                 id,
                 {password: hashedPassword}
             );
-
+        //Todo:- remove updatedUser from the resposne
             return res
                 .status(200)
                 .json(
-                    {success: true, user: updatedUser, message: "Auth server, Password Reset successfully"}
+                    {success: true,  message: "Auth server, Password Reset successfully"}
                 );
         } else {
             return res

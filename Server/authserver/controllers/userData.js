@@ -1,6 +1,6 @@
 const User = require("../models/User");
 
-exports.autoLogin = async (req, res) => {
+exports.userData = async (req, res) => {
     try {
         const {id} = req.user;
         const user = await User.findById(id);
@@ -13,19 +13,19 @@ exports.autoLogin = async (req, res) => {
                 );
         }
 
-        user.password = '';
+        user.password = undefined;
 
-        console.log(user);
+        // console.log(user);
 
         return res
             .status(200)
             .json(
-                {success: true, message: "Auth server response, User Auto Login Successful", user}
+                {success: true, message: "Auth server response, User data fetched Successfully", user}
             );
     } catch (error) {
         console.error(error.message);
         return res
             .status(500)
-            .json({success: false, message: "Auth Server Error, Auto Login Failed"});
+            .json({success: false, message: "Auth Server Error, user data not fetched"});
     }
 };

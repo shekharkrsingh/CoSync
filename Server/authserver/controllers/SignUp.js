@@ -80,7 +80,7 @@ exports.signup = async (req, res) => {
         return res
             .status(200)
             .json(
-                {success: true, user, message: "Auth Server, User registered Successfully"}
+                {success: true, message: "Auth Server, User registered Successfully"}
             );
     } catch (error) {
         console.error(error.message);
