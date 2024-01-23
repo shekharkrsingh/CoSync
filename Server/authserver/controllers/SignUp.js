@@ -6,15 +6,13 @@ const validator = require('validator');
 exports.signup = async (req, res) => {
     try {
         const {
-            firstName,
-            lastName,
             email,
             password,
             confirmPassword,
             otp
         } = req.body;
 
-        if (!firstName || !lastName || !email || !password || !confirmPassword) {
+        if ( !email || !password || !confirmPassword) {
             return res
                 .status(400)
                 .json(
@@ -73,8 +71,8 @@ exports.signup = async (req, res) => {
 
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        const user = await User.create(
-            {firstName, lastName, email, password: hashedPassword}
+        await User.create(
+            { email, password: hashedPassword}
         );
 
         return res

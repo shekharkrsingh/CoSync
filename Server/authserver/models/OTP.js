@@ -24,7 +24,7 @@ async function sendVerificationEmail(email, otp) {
             "Verification Email",
             `<div>Shekhar ${otp}</div> `
         );
-        console.log("Email sent Successfully: ", mailResponse.response);
+        // console.log("Email sent Successfully: ", mailResponse.response);
     } catch (error) {
         console.log("Auth Server Error, error occurred while sending email: ", error)
         throw error;
@@ -32,7 +32,7 @@ async function sendVerificationEmail(email, otp) {
 }
 
 OTPSchema.pre("save", async function (next) {
-    console.log("New document saved to the database");
+    // console.log("New document saved to the database");
 
     if (this.isNew) {
         await sendVerificationEmail(this.email, this.otp);
