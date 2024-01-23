@@ -13,7 +13,7 @@ const mailSender = async (email, title, body) => {
         let info = await transporter.sendMail(
             {from: `CoSync <${process.env.AUTH_MAIL_USER}`, to: `${email}`, subject: `${title}`, html: `${body}`}
         )
-        console.log(info.response)
+        // console.log(info.response)
         return info
     } catch (error) {
         console.log(error.message);

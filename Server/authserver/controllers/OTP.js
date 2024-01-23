@@ -35,7 +35,7 @@ exports.sendotp = async (req, res) => {
         };
 
         const otpBody = await OTP.create(otpPayload);
-        console.log("OTP Body", otpBody);
+        // console.log("OTP Body", otpBody);
 
         res
             .status(200)
